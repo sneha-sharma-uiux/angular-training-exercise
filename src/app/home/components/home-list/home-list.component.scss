@@ -1,0 +1,14 @@
+.list-container {
+    width: 860px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    .list-item {
+        width: 210px;
+        img {
+            width: 200px;
+        }
+    }
+}

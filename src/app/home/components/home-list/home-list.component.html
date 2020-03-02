@@ -1,0 +1,18 @@
+<button (click)="reset()">Reset</button>
+
+<form [formGroup]="group">
+    <input name="searchText" formControlName="search" />
+</form>
+
+<div class="list-container">
+    <div class="list-item" *ngFor="let ch of character$ |async">
+        <img [src]="ch.image" alt="{{ch.name}}" />
+        <ul>
+            <li>Status {{ch.status}}</li>
+            <li>Species {{ch.species}}</li>
+            <li>Gender {{ch.gender}}</li>
+            <li>Origin {{ch.origin.name}}</li>
+            <li>Last Location {{ch.location.name}}</li>
+        </ul>
+    </div>
+</div>
