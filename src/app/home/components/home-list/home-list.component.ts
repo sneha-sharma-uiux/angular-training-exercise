@@ -49,7 +49,7 @@ export class HomeListComponent implements OnInit, Character {
     .searchControl
     .valueChanges
     .pipe(filter(value => !!value)) //non empty strings are true
-    .pipe(map(value => value.trim().toLowerCase()))
+    .pipe(map(value => value.trim()))
     .pipe(debounceTime(500))
     .subscribe(value =>{
       console.log('*'+value+'*');
