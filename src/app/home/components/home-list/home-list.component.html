@@ -1,11 +1,35 @@
-<button (click)="reset()">Reset</button>
-
 <form [formGroup]="group">
     <input name="searchText" formControlName="search" />
+    <button type="submit" (click)="search()">Search</button>
+
+    <select formControlName="sort"  (change)="sortCharacters($event)">
+        <option value="?" selected>Sort by ID</option>
+            <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+                    </select>
 </form>
+Sort by species:
+<ng-container class="filter">
+    <div *ngFor="let s of species;let i=index">
+        <input type="checkbox" (change)="onSpeciesChange(s, $event.target.checked,i)" [checked]="true"> {{s}}<br>
+    </div>
+</ng-container>
+<hr> Sort by genders:
+<ng-container class="filter">
+    <div *ngFor="let g of genders;let i=index">
+        <input type="checkbox" (change)="ongenderChange(g, $event.target.checked,i)" [checked]="true"> {{g}}<br>
+    </div>
+</ng-container>
+
+<hr> Sort by origin:
+<ng-container class="filter">
+    <div *ngFor="let o of origins;let i=index">
+        <input type="checkbox" (change)="onoriginChange(o, $event.target.checked,i)" [checked]="true"> {{o}}<br>
+    </div>
+</ng-container>
 
 <div class="list-container">
-    <div class="list-item" *ngFor="let ch of character$ |async">
+    <div class="list-item" *ngFor="let ch of character$ | async | sort:'id': Desc |filter :gendersChecked:speciesChecked:originChecked">
         <img [src]="ch.image" alt="{{ch.name}}" />
         <ul>
             <li>Status {{ch.status}}</li>

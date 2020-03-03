@@ -34,7 +34,7 @@ getData(id: any): Observable<Character> {
 }
 
 
-searchProducts(name: string): Observable<Character[]> {
+searchData(name: string): Observable<Character[]> {
   return this.http.get<Character[]>(`${environment.apiEndPoint}/results?name=${name}`);
 }
 
