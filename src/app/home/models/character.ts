@@ -1,9 +1,11 @@
 export interface Character {
     id: number;
-  name: string;
-  status: boolean;
-  species: string;
-  gender: string;
-  location: { name: string; url: string; };
-  origin: { name: string; url: string; };
+    name: string;
+    status: string;
+    species: string;
+    gender: string;
+    created: string;
+    image: string;
+    origin: { name: string; };
+    location: { name: string; };
 }

@@ -1,42 +1,26 @@
-<form [formGroup]="group">
-    <input name="searchText" formControlName="search" />
-    <button type="submit" (click)="search()">Search</button>
-
-    <select formControlName="sort"  (change)="sortCharacters($event)">
-        <option value="?" selected>Sort by ID</option>
-            <option value="asc">Ascending</option>
-                <option value="desc">Descending</option>
-                    </select>
-</form>
-Sort by species:
-<ng-container class="filter">
-    <div *ngFor="let s of species;let i=index">
-        <input type="checkbox" (change)="onSpeciesChange(s, $event.target.checked,i)" [checked]="true"> {{s}}<br>
+<div class="character-list">
+    <div class="list-container" *ngIf="(characters$)?.length>0">
+        <div class="list-item" *ngFor="let ch of (characters$ | sort:'id': typeSort | filter: genderItems:speciesItems:originItems:filterKey)">
+            <img [src]="ch.image" alt="{{ch.name}}" />
+            <div class="box-top-area">
+                <span class="char-name">{{ch.name}}</span>
+                <span class="char-id">{{ch.id}} : {{ch.created | lastCreated}}</span>
+            </div>
+            <ul>
+                <li>
+                    <span class="property-area">Status</span><span class="value-area">{{ch.status}}</span></li>
+                <li>
+                    <span class="property-area">Species</span><span class="value-area">{{ch.species}}</span> </li>
+                <li>
+                    <span class="property-area">Gender</span><span class="value-area">{{ch.gender}}</span></li>
+                <li>
+                    <span class="property-area">Origin</span><span class="value-area">{{ch.origin.name}}</span></li>
+                <li>
+                    <span class="property-area">Last Location</span><span class="value-area">{{ch.location.name}}</span></li>
+            </ul>
+        </div>
     </div>
-</ng-container>
-<hr> Sort by genders:
-<ng-container class="filter">
-    <div *ngFor="let g of genders;let i=index">
-        <input type="checkbox" (change)="ongenderChange(g, $event.target.checked,i)" [checked]="true"> {{g}}<br>
-    </div>
-</ng-container>
-
-<hr> Sort by origin:
-<ng-container class="filter">
-    <div *ngFor="let o of origins;let i=index">
-        <input type="checkbox" (change)="onoriginChange(o, $event.target.checked,i)" [checked]="true"> {{o}}<br>
-    </div>
-</ng-container>
-
-<div class="list-container">
-    <div class="list-item" *ngFor="let ch of character$ | async | sort:'id': Desc |filter :gendersChecked:speciesChecked:originChecked">
-        <img [src]="ch.image" alt="{{ch.name}}" />
-        <ul>
-            <li>Status {{ch.status}}</li>
-            <li>Species {{ch.species}}</li>
-            <li>Gender {{ch.gender}}</li>
-            <li>Origin {{ch.origin.name}}</li>
-            <li>Last Location {{ch.location.name}}</li>
-        </ul>
-    </div>
+    <ng-template *ngIf="(characters$)?.length==0">
+        <span>No character found !!</span>
+    </ng-template>
 </div>

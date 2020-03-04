@@ -1,3 +1,29 @@
 <div class="filter-container">
+    <h1>Filters</h1>
+    <form [formGroup]="form">
+        <div>
+            <div class="species-filter-box box">
+                <h3>Species</h3>
+                <div *ngFor="let s of species">
+                    <input type="checkbox" formControlName="filter" (change)="checked('species', s, $event)"><span class="checkbox-label">{{s}}</span><br>
+                </div>
+            </div>
+
+            <div class="gender-filter-box box">
+                <h3>Gender</h3>
+                <div *ngFor="let g of genders">
+                    <input type="checkbox" formControlName="filter" (change)="checked('gender', g, $event)"><span class="checkbox-label">{{g}}</span><br>
+                </div>
+            </div>
+
+            <div class="origin-filter-box box">
+                <h3>Origin</h3>
+                <div *ngFor="let o of origins">
+                    <input type="checkbox" formControlName="filter" (change)="checked('origin', o, $event)"><span class="checkbox-label">{{o}}</span><br>
+                </div>
+            </div>
+
+        </div>
+    </form>
 
 </div>

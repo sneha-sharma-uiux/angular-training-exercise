@@ -1,4 +1,28 @@
-<div class="container">
-    <app-filter-area></app-filter-area>
-    <app-home-list></app-home-list>
+<div class="main-container">
+    <div class="left-container-area">
+        <app-filter-area></app-filter-area>
+    </div>
+    <div class="right-container-area">
+        <div class="character-form-controls">
+            <div class="character-list-form">
+                <form [formGroup]="form">
+                    <span class="search-wrapper">
+                        <p>Search By Name</p>
+                        <input name="searchText" formControlName="search">
+                        <button (click)="searchCharacter()">Search</button>
+                    </span>
+                    <span class="sort-wrapper">
+                        <select formControlName="sort" (change)="sortCharacters($event)">
+                            <option value="">Sort by ID</option>
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                    </span>
+                </form>
+            </div>
+        </div>
+
+        <app-home-list></app-home-list>
+    </div>
+
 </div>

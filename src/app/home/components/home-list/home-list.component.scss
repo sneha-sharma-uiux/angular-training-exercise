@@ -1,14 +1,115 @@
 .list-container {
-    width: 860px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #000;
     .list-item {
-        width: 210px;
+        flex: 40%;
+        background: #494848;
+        min-height: 425px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        position: relative;
+        box-sizing: border-box;
         img {
-            width: 200px;
+            width: 100%;
+            border-radius: 5px 5px 0px 0px;
+        }
+        .box-top-area {
+            position: absolute;
+            padding: 10px 7px;
+            top: 24%;
+            background: #474545;
+            opacity: 0.75;
+            width: 100%;
+            box-sizing: border-box;
+            .char-name {
+                font-size: 19px;
+                display: block;
+                color: #ccc;
+                font-family: Arial;
+            }
+            .char-id {
+                font-size: 10px;
+                color: #ccc;
+                font-family: Arial;
+            }
+        }
+        ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 5px;
+            li {
+                padding: 17px 7px;
+                border-bottom: 1px solid #ccc;
+                color: #ccc;
+                font-size: 11px;
+                position: relative;
+                .property-area {
+                    width: 40px;
+                    position: relative;
+                    display: block;
+                    margin-bottom: 12px;
+                    text-transform: uppercase;
+                }
+                .value-area {
+                    position: absolute;
+                    right: 5px;
+                    color: #ffa500;
+                    max-width: 92px;
+                    text-align: end;
+                    display: block;
+                    top: 17px;
+                }
+            }
+            li:last-child {
+                border: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1024px) and (min-width:768px) {
+    .list-container {
+        .list-item {
+            flex: 20%;
+            max-width: 225px;
+            .box-top-area {
+                top: 22%;
+                padding: 5px;
+                .char-name {
+                    font-size: 15px;
+                }
+            }
+            ul {
+                li {
+                    font-size: 10px;
+                    .property-area {
+                        font-size: 9px;
+                    }
+                    .value-area {
+                        max-width: 88px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1025px) {
+    .list-container {
+        .list-item {
+            flex: 20%;
+            max-width: 225px;
+            .box-top-area {
+                top: 30%;
+            }
         }
     }
 }
