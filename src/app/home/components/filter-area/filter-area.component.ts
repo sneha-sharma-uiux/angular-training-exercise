@@ -12,15 +12,11 @@ import { Character } from '../../models/character';
 })
 export class FilterAreaComponent implements OnInit {
   characters$: Character[];
-  filteredArr: Character[];
   form: FormGroup;
   filterControl: FormControl;
   genders: string[];
   species: string[];
   origins: string[];
-  filterKeyArr: string[] = [];
-  filterValueArr: string[] = [];
-  filterItems: string[] = [];
   gender: string[]
   speciesChecked: string[];
   gendersChecked: string[];
@@ -68,7 +64,6 @@ export class FilterAreaComponent implements OnInit {
       this.homeService.genderItems = this.gendersChecked;
       this.homeService.speciesItems = this.speciesChecked;
       this.homeService.originItems = this.originChecked;
-      this.homeService.filterKey = this.filterKey;
   }
 
   ngOnInit(): void {

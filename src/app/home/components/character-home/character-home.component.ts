@@ -16,7 +16,7 @@ export class CharacterHomeComponent implements OnInit {
   searchControl: FormControl;
   sortControl: FormControl;
 
-  constructor(private characterService: HomeService, private formBuilder: FormBuilder) {
+  constructor(private homeService: HomeService, private formBuilder: FormBuilder) {
     this.searchControl = new FormControl("");
     this.sortControl = new FormControl("");
     this.form = this.formBuilder.group({
@@ -26,7 +26,7 @@ export class CharacterHomeComponent implements OnInit {
   }
 
   searchCharacter(): void {
-    this.characterService.getUpdatedSearchData(this.searchControl.value);
+    this.homeService.getUpdatedSearchData(this.searchControl.value);
   }
 
   sortCharacters(e): void {
@@ -34,7 +34,7 @@ export class CharacterHomeComponent implements OnInit {
       .valueChanges
       .pipe(startWith(null))
       .subscribe((value) => {
-        this.characterService.typeSort = e.target.value;
+        this.homeService.typeSort = e.target.value;
       })
   }
 
@@ -43,7 +43,7 @@ export class CharacterHomeComponent implements OnInit {
       .valueChanges
       .pipe(filter(value => !value))// empty strings are true
       .subscribe(() => {
-        of(this.characters$).subscribe(() => this.characterService.getUpdatedData());
+        of(this.characters$).subscribe(() => this.homeService.getUpdatedData());
       })
   }
 

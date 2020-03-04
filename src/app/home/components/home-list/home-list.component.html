@@ -1,6 +1,6 @@
 <div class="character-list">
     <div class="list-container" *ngIf="(characters$)?.length>0">
-        <div class="list-item" *ngFor="let ch of (characters$ | sort:'id': typeSort | filter: genderItems:speciesItems:originItems:filterKey)">
+        <div class="list-item" *ngFor="let ch of (characters$ | sort:'id': typeSort | filter: genderItems:speciesItems:originItems)">
             <img [src]="ch.image" alt="{{ch.name}}" />
             <div class="box-top-area">
                 <span class="char-name">{{ch.name}}</span>

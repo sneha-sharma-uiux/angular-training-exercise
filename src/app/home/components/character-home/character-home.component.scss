@@ -15,12 +15,17 @@
                 position: relative;
                 .search-wrapper {
                     display: block;
+                    input {
+                        width: 81%;
+                        margin-right: 3px;
+                    }
                 }
                 .sort-wrapper {
                     display: block;
-                    position: absolute;
-                    right: 0px;
-                    top: 36px;
+                    margin-top: 30px;
+                    select {
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -35,6 +40,21 @@
         }
         .right-container-area {
             flex: 80%;
+            .character-form-controls {
+                .character-list-form {
+                    .search-wrapper {
+                        input {
+                            width: auto;
+                        }
+                    }
+                    .sort-wrapper {
+                        position: absolute;
+                        right: 0px;
+                        top: 36px;
+                        margin-top: 0px;
+                    }
+                }
+            }
         }
     }
 }
@@ -47,6 +67,19 @@
         }
         .right-container-area {
             flex: 80%;
+            .character-list-form {
+                .search-wrapper {
+                    input {
+                        width: auto !important;
+                    }
+                }
+                .sort-wrapper {
+                    position: absolute;
+                    right: 0px;
+                    top: 36px;
+                    margin-top: 0px !important;
+                }
+            }
         }
     }
 }

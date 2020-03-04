@@ -15,7 +15,7 @@ export class HomeService {
   private _originItems:string[];
   private _speciesItems:string[];
   private _genderItems:string[];
-  private _filterKey:string;
+  
   public character$: BehaviorSubject<Character[]> = new BehaviorSubject(null);
   public typeSort$: BehaviorSubject<string> = new BehaviorSubject(null);
   public originItems$: BehaviorSubject<string[]> = new BehaviorSubject(null);
@@ -58,15 +58,6 @@ export class HomeService {
   set genderItems(value: string[]) {
     this._genderItems = value;
     this.genderItems$.next(this._genderItems);
-  }
-
-  get filterKey(){
-    return this._filterKey;
-  }
-
-  set filterKey(value: string) {
-    this._filterKey = value;
-    this.filterKey$.next(this._filterKey);
   }
 
   constructor(private http: HttpClient) { }

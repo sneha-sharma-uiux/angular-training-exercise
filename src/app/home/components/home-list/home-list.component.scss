@@ -8,6 +8,7 @@
     background-color: #000;
     .list-item {
         flex: 40%;
+        max-width: 170px;
         background: #494848;
         min-height: 425px;
         margin-bottom: 10px;
@@ -79,7 +80,7 @@
     .list-container {
         .list-item {
             flex: 20%;
-            max-width: 225px;
+            max-width: 141px;
             .box-top-area {
                 top: 22%;
                 padding: 5px;
@@ -108,7 +109,7 @@
             flex: 20%;
             max-width: 225px;
             .box-top-area {
-                top: 30%;
+                top: 31%;
             }
         }
     }
